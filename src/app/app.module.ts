@@ -8,13 +8,23 @@ import { ProductComponent } from './product/product.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { LoginComponent } from './login/login.component';
+import { AdminCategoriesComponent } from './admin-categories/admin-categories.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddProductComponent,
     ProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    CategoriesComponent,
+    LoginComponent,
+    AdminCategoriesComponent,
+    AdminUsersComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,

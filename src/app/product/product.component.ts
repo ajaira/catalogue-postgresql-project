@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CatalogueService} from '../service/catalogue.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {toBase64String} from '@angular/compiler/src/output/source_map';
 
 @Component({
@@ -17,11 +17,29 @@ export class ProductComponent implements OnInit {
   totalPages:Number;
   pages:Array<number>;
   currentKeyword:String;
-  constructor(private catalogue: CatalogueService, private router:Router) { }
+  constructor(private catalogue: CatalogueService, private router:Router, private activateRoute:ActivatedRoute) {
+
+    router.events.subscribe(event => {
+      if(event instanceof NavigationEnd){
+        let url = atob(this.activateRoute.snapshot.params.productUrl);
+        this.onGetProductsByCategorieUrl(url);
+      }
+    })
+
+  }
 
   ngOnInit(): void {
   }
 
+  onGetProductsByCategorieUrl(url) {
+    this.catalogue.getProductsbyCategorie(url)
+      .subscribe(data => {
+        this.productsItems = data;
+      }, error =>{
+        console.log(error);
+      })
+
+  }
   onGetProducts() {
     this.catalogue.getProducts(this.currentPage, this.size)
       .subscribe(data=> {

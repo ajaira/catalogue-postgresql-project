@@ -16,7 +16,7 @@ export class EditProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.url = atob(this.activateRoute.snapshot.params.id);
+    this.url = atob(this.activateRoute.snapshot.params.id);
     this.catalogueService.getProduct(this.url)
       .subscribe(data =>{
         this.currentProduct = data;

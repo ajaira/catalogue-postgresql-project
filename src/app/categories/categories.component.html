@@ -1,0 +1,7 @@
+<ul *ngIf="categoriesItems" class="list-group">
+  <li [ngClass]="currentCategory && currentCategory._links.self==cat._links.self?'active':''" *ngFor="let cat of categoriesItems._embedded.categories" class="list-group-item cliquable" (click)="onGetProducts(cat)">
+    {{cat.name}}
+  </li>
+</ul>
+
+
