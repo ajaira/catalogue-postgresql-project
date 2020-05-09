@@ -7,7 +7,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  host: string="http://localhost:8080";
+  host: string="http://localhost:8082";
   token:string;
   username:string;
   roles:Array<any>;

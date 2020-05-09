@@ -9,7 +9,8 @@ import {AuthService} from './auth.service';
 })
 export class CatalogueService {
 
-  host: String = 'http://localhost:8081';
+  //host: String = 'http://catalogue-service';
+  host: string="http://localhost:8081";
 
   constructor(private http: HttpClient, private authService: AuthService) {
   }
